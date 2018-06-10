@@ -191,11 +191,11 @@ export default class PointLayer extends Layer {
       }, []);
     }
 
-    const getRadius = d =>
-      rScale ? this.getEncodedChannelValue(rScale, d.data, sizeField) : 1;
+    const getRadius = rScale ? d =>
+      this.getEncodedChannelValue(rScale, d.data, sizeField) : 1;
 
-    const getColor = d =>
-      cScale ? this.getEncodedChannelValue(cScale, d.data, colorField) : color;
+    const getColor = cScale ? d =>
+      this.getEncodedChannelValue(cScale, d.data, colorField) : color;
 
     return {
       data,
@@ -232,6 +232,8 @@ export default class PointLayer extends Layer {
       ...layerInteraction,
       ...data,
       idx,
+      autoHighlight:true,
+      highlightColor: this.config.highlightColor,
       opacity: this.config.visConfig.opacity,
       pickable: true,
       updateTriggers: {
@@ -262,25 +264,7 @@ export default class PointLayer extends Layer {
         : new ScatterplotLayer({
             id: this.id,
             ...baseLayerProp
-          }),
-
-      // hover layer
-      ...(this.isLayerHovered(objectHovered)
-        ? [
-            new ScatterplotLayer({
-              ...layerProps,
-              id: `${this.id}-hovered`,
-              data: [
-                {
-                  color: this.config.highlightColor,
-                  position: data.getPosition(objectHovered.object),
-                  radius: data.getRadius(objectHovered.object)
-                }
-              ],
-              pickable: false
-            })
-          ]
-        : [])
+          })
     ];
   }
 }

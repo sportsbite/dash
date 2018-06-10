@@ -333,7 +333,7 @@ export default class GeoJsonLayer extends Layer {
       elevationScale: this.config.visConfig.elevationScale,
       pointRadiusScale: radiusScale,
       fp64: fp64 || this.config.visConfig['hi-precision'],
-      lineMiterLimit: 10 * zoomFactor,
+      lineMiterLimit: 4,
       rounded: true
     };
 
@@ -378,6 +378,9 @@ export default class GeoJsonLayer extends Layer {
         getRadius: data.getRadius,
         getElevation: data.getElevation,
         pickable: true,
+
+        // lineJointRounded: true,
+
         opacity: this.config.visConfig.opacity,
         stroked: this.config.visConfig.stroked,
         filled: this.config.visConfig.filled,

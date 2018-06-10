@@ -37,7 +37,7 @@ export const PROPERTY_GROUPS = keyMirror({
 export const LAYER_VIS_CONFIGS = {
   thickness: {
     type: 'number',
-    defaultValue: 2,
+    defaultValue: 0.5,
     label: 'Stroke Width',
     isRanged: false,
     range: [0, 100],

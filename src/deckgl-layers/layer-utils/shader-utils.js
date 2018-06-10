@@ -18,22 +18,23 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import {console as Console} from 'global/window';
+
 /*
  * Amendment to default layer vertex shader
  * @param {string} vs
- * @param {bool} opt.highlightPicked - whether to highlight picked element
+ * @param {string} type
+ * @param {string} originalText
+ * @param {string} testToReplace
+ * @return {string} output shader
  *
  */
-export function getCellLayerVertex(vs, {highlightPicked}) {
-  let output = vs;
+export function editShader(vs, type, originalText, testToReplace) {
 
-  if (highlightPicked) {
-    output = output.replace(
-      'vec3 lightWeightedColor = lightWeight * instanceColors.rgb;',
-
-      `vec3 lightWeightedColor = lightWeight * mix(1.0, mix(1.0, 1.2, selected), extruded) * instanceColors.rgb;`
-    );
+  if (!vs.includes(originalText)) {
+    Console.warn(`Cannot edit ${type} layer shader`);
+    return vs;
   }
 
-  return output;
+  return vs.replace(originalText, testToReplace);
 }

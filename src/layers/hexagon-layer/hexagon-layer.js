@@ -80,6 +80,11 @@ export default class HexagonLayer extends AggregationLayer {
         ...layerInteraction,
         id: this.id,
         idx,
+
+        // highlight
+        autoHighlight:true,
+        highlightColor: this.config.highlightColor,
+
         radius,
         coverage: visConfig.coverage,
 
