@@ -82,8 +82,7 @@ export default class HexagonLayer extends AggregationLayer {
         idx,
 
         // highlight
-        autoHighlight:true,
-        highlightColor: this.config.highlightColor,
+        autoHighlight: visConfig.enable3d,
 
         radius,
         coverage: visConfig.coverage,
@@ -110,6 +109,7 @@ export default class HexagonLayer extends AggregationLayer {
         onSetColorDomain: layerCallbacks.onSetLayerDomain
       }),
 
+      // render an outline of each hexagon if not extruded
       ...(this.isLayerHovered(objectHovered) && !visConfig.enable3d
         ? [
             new GeoJsonLayer({

@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@deck.gl/core@^5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@deck.gl/core/-/core-5.3.0.tgz#f98cfad06e677f634f197b7e6eb66567f6ade5aa"
+"@deck.gl/core@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@deck.gl/core/-/core-5.3.1.tgz#acfc1e5fefd3b12e9142419b0aeb77c07885626c"
   dependencies:
     luma.gl "^5.3.0"
     math.gl "^1.2.1"
@@ -13,19 +13,19 @@
     seer "^0.2.4"
     viewport-mercator-project "^5.1.0"
 
-"@deck.gl/layers@^5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@deck.gl/layers/-/layers-5.3.0.tgz#add5e9a92b08998d72a5929ea7b69ece4ebcf3a5"
+"@deck.gl/layers@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@deck.gl/layers/-/layers-5.3.1.tgz#d5f7b43bf52d46fb4e96d354a2ba93e577418c3d"
   dependencies:
-    "@deck.gl/core" "^5.3.0"
+    "@deck.gl/core" "^5.3.1"
     d3-hexbin "^0.2.1"
     earcut "^2.0.6"
 
-"@deck.gl/react@^5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@deck.gl/react/-/react-5.3.0.tgz#8b3dd26ce5fe85473e9d9e30238cb93428925167"
+"@deck.gl/react@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@deck.gl/react/-/react-5.3.1.tgz#0c16fac59061924eb3509dea06c837bcef8044f2"
   dependencies:
-    "@deck.gl/core" "^5.3.0"
+    "@deck.gl/core" "^5.3.1"
     prop-types "^15.6.0"
 
 "@mapbox/extent@0.4.0":
@@ -2290,13 +2290,13 @@ decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
-deck.gl@5.3.0:
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/deck.gl/-/deck.gl-5.3.0.tgz#bd6584c152603819be9504438ac824bb3c6b4186"
+deck.gl@5.3.1:
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/deck.gl/-/deck.gl-5.3.1.tgz#5d56a1c2bea61340ebf992b965b6ff70df5680eb"
   dependencies:
-    "@deck.gl/core" "^5.3.0"
-    "@deck.gl/layers" "^5.3.0"
-    "@deck.gl/react" "^5.3.0"
+    "@deck.gl/core" "^5.3.1"
+    "@deck.gl/layers" "^5.3.1"
+    "@deck.gl/react" "^5.3.1"
 
 decode-uri-component@^0.2.0:
   version "0.2.0"

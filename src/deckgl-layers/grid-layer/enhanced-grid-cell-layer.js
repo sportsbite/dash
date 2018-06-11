@@ -21,11 +21,14 @@
 import {GridCellLayer} from 'deck.gl';
 
 export default class EnhancedGridCellLayer extends GridCellLayer {
-  // getShaders() {
-  //   const shaders = super.getShaders();
-  //   const vs = getCellLayerVertex(shaders.vs, {highlightPicked: true});
-  //   return {...shaders, vs};
-  // }
+  draw({uniforms}) {
+    super.draw({
+      uniforms: {
+        ...uniforms,
+        picking_uHighlightScale: this.props.extruded ? 1.2 : 0.0
+      }
+    })
+  }
 }
 
 EnhancedGridCellLayer.layerName = 'EnhancedGridCellLayer';

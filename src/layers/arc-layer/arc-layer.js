@@ -224,28 +224,32 @@ export default class ArcLayer extends Layer {
       color: this.config.color,
       colorField: this.config.colorField,
       colorRange: this.config.visConfig.colorRange,
-      colorScale: this.config.colorScale
+      colorScale: this.config.colorScale,
+      targetColor: this.config.visConfig.targetColor
+    };
+
+    const interaction = {
+      // auto highlighting
+      pickable: true,
+      autoHighlight: !brush.enabled,
+      highlightColor: this.config.highlightColor,
+
+      // brushing
+      brushRadius: brush.config.size * 1000,
+      brushSource: true,
+      brushTarget: true,
+      enableBrushing: brush.enabled
     };
 
     return [
-      // base layer
       new ArcBrushingLayer({
         ...layerInteraction,
         ...data,
+        ...interaction,
         id: this.id,
         idx,
-
-        // auto highlighting
-        autoHighlight:true,
-        highlightColor: this.config.highlightColor,
-
-        brushRadius: brush.config.size * 1000,
-        brushSource: true,
-        brushTarget: true,
-        enableBrushing: brush.enabled,
         fp64: this.config.visConfig['hi-precision'],
         opacity: this.config.visConfig.opacity,
-        pickable: true,
         pickedColor: this.config.highlightColor,
         strokeScale: this.config.visConfig.thickness,
         updateTriggers: {
@@ -253,7 +257,6 @@ export default class ArcLayer extends Layer {
             sizeField: this.config.sizeField,
             sizeRange: this.config.visConfig.sizeRange
           },
-          getColor: colorUpdateTriggers,
           getSourceColor: colorUpdateTriggers,
           getTargetColor: colorUpdateTriggers
         }

@@ -54,6 +54,7 @@ export default class GridLayer extends AggregationLayer {
   get layerIcon() {
     return GridLayerIcon;
   }
+
   formatLayerData(_, allData, filteredIndex, oldLayerData, opt = {}) {
     const formattedData = super.formatLayerData(
       _,
@@ -100,6 +101,8 @@ export default class GridLayer extends AggregationLayer {
         idx,
         cellSize,
         coverage: visConfig.coverage,
+        // highlight
+        autoHighlight: visConfig.enable3d,
 
         // color
         colorRange: this.getColorRange(visConfig.colorRange),
@@ -123,6 +126,7 @@ export default class GridLayer extends AggregationLayer {
         onSetColorDomain: layerCallbacks.onSetLayerDomain
       }),
 
+      // render an outline of each cell if not extruded
       ...(this.isLayerHovered(objectHovered) && !visConfig.enable3d
         ? [
             new GeoJsonLayer({
